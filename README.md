@@ -1,6 +1,6 @@
 # Aplicação de Fluxo de Caixa
 
-Sistema de gerenciamento de fluxo de caixa desenvolvido com Laravel, permitindo o controle de receitas e despesas, categorização de transações, gestão de contas e formas de pagamento.
+Sistema de gerenciamento de fluxo de caixa, permitindo o controle de receitas e despesas, categorização de transações, gestão de contas e formas de pagamento.
 
 ## Funcionalidades
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContaController;
 use App\Http\Controllers\FormaPagamentoController;
 use App\Http\Controllers\PagamentoController;
@@ -22,5 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('categorias', CategoriaController::class);
     Route::apiResource('formas-pagamento', FormaPagamentoController::class);
     Route::apiResource('contas', ContaController::class);
+
     Route::apiResource('pagamentos', PagamentoController::class);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
