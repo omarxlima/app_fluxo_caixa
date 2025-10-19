@@ -31,7 +31,7 @@ Funcionalidades pendentes na API:
 1. Clone o repositório:
 
 ```bash
-git clone [url-do-repositorio]
+git clone https://github.com/omarxlima/app_fluxo_caixa
 cd app_fluxo_caixa
 ```
 
@@ -67,7 +67,7 @@ php artisan db:seed
 1. Clone o repositório:
 
 ```bash
-git clone [url-do-repositorio]
+git clone https://github.com/omarxlima/app_fluxo_caixa
 cd app_fluxo_caixa
 ```
 
