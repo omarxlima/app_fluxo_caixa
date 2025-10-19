@@ -15,7 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call([
+            AdminUserSeeder::class,
+        ]);
+        
         \App\Models\FormaPagamento::factory()->count(4)->create();
         \App\Models\Categoria::factory()->count(6)->create();
         \App\Models\Pessoa::factory()->count(10)->create();

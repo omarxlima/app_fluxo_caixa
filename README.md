@@ -101,6 +101,53 @@ cp .env.example .env
 ./vendor/bin/sail artisan db:seed
 ```
 
+## Autenticação e Acesso
+
+A API utiliza autenticação via token (Laravel Sanctum). Para acessar as rotas protegidas, você precisa:
+
+1. Fazer login para obter o token de acesso:
+
+```bash
+curl -X POST http://localhost:8000/api/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "admin@maxtech.com",
+    "password": "adminadmin"
+  }'
+```
+
+1. Usar o token recebido nas requisições subsequentes:
+
+```bash
+curl -X GET http://localhost:8000/api/user \
+  -H "Authorization: Bearer seu-token-aqui" \
+  -H "Accept: application/json"
+```
+
+### Credenciais Padrão
+
+Após executar os seeders, você terá acesso com:
+
+- **Email**: admin@maxtech.com
+- **Senha**: adminadmin
+
+### Endpoints de Autenticação
+
+- `POST /api/register` - Registrar novo usuário
+- `POST /api/login` - Fazer login e obter token
+- `POST /api/logout` - Fazer logout (invalidar token)
+- `GET /api/user` - Obter dados do usuário autenticado
+
+### Rotas Protegidas
+
+Todas as rotas abaixo requerem autenticação (header Authorization com Bearer token):
+
+- `/api/pessoas` - Gestão de pessoas
+- `/api/categorias` - Gestão de categorias
+- `/api/formas-pagamento` - Gestão de formas de pagamento
+- `/api/contas` - Gestão de contas
+- `/api/pagamentos` - Gestão de pagamentos
+
 ## Estrutura do Banco de Dados
 
 - `users`: Usuários do sistema
