@@ -1,3 +1,4 @@
+
 # Aplicação de Fluxo de Caixa
 
 Sistema de gerenciamento de fluxo de caixa, permitindo o controle de receitas e despesas, categorização de transações, gestão de contas e formas de pagamento.
@@ -10,6 +11,12 @@ Sistema de gerenciamento de fluxo de caixa, permitindo o controle de receitas e 
 - Registro de Pagamentos
 - Gestão de Formas de Pagamento
 - Autenticação de Usuários
+## Observações Importantes
+
+Funcionalidades pendentes na API:
+- Testes unitários
+- Filtros nas rotas/endpoints
+- Perfis de usuário (controle de acesso)
 
 ## Requisitos
 
