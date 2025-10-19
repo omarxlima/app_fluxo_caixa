@@ -22,7 +22,7 @@ class CategoriaController extends Controller
     {
         $data = $request->validate([
             'nome' => 'required|string|max:255',
-            'descricao' => 'nullable|string',
+            'tipo' => 'nullable|in:string,despesa,receita',
         ]);
 
         $categoria = Categoria::create($data);
