@@ -81,4 +81,7 @@ return [
         'validate_csrf_token' => Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
     ],
 
+    'expiration' => 43200, // duração do token (em minutos, 30 dias)
+
+
 ];

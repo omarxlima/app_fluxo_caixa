@@ -174,51 +174,6 @@ ou sem Docker:
 php artisan test
 ```
 
-## Como Contribuir
-
-1. Faça um fork do projeto
-
-1. Crie uma branch para sua feature
-
-```bash
-git checkout -b feature/nome-da-feature
-```
-
-1. Commit suas alterações
-
-```bash
-git commit -m 'Adiciona nova feature'
-```
-
-1. Push para a branch
-
-```bash
-git push origin feature/nome-da-feature
-```
-
-1. Abra um Pull Request
-
-### Diretrizes para Contribuição
-
-- Sempre crie uma branch para sua feature/correção
-- Siga os padrões de código do projeto (PSR-12)
-- Escreva testes para novas funcionalidades
-- Atualize a documentação quando necessário
-- Certifique-se que todos os testes estão passando antes do Pull Request
-- Descreva claramente suas alterações no Pull Request
-
-### Reportando Bugs
-
-Se você encontrou um bug, por favor, abra uma issue no GitHub com as seguintes informações:
-
-- Descrição clara do problema
-- Passos para reproduzir
-- Comportamento esperado
-- Comportamento atual
-- Prints de tela (se aplicável)
-- Versão do PHP e do Laravel
-- Sistema operacional
-
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
