@@ -1,61 +1,224 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Aplicação de Fluxo de Caixa
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema de gerenciamento de fluxo de caixa desenvolvido com Laravel, permitindo o controle de receitas e despesas, categorização de transações, gestão de contas e formas de pagamento.
 
-## About Laravel
+## Funcionalidades
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Gestão de Pessoas/Clientes
+- Categorização de Receitas e Despesas
+- Controle de Contas
+- Registro de Pagamentos
+- Gestão de Formas de Pagamento
+- Autenticação de Usuários
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP 8.1 ou superior
+- Composer
+- Docker (opcional, para usar com Laravel Sail)
 
-## Learning Laravel
+## Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Usando Composer
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Clone o repositório:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone [url-do-repositorio]
+cd app_fluxo_caixa
+```
 
-## Laravel Sponsors
+1. Instale as dependências:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+composer install
+```
 
-### Premium Partners
+1. Configure o arquivo de ambiente:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Contributing
+1. Configure seu banco de dados no arquivo `.env`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Execute as migrações:
 
-## Code of Conduct
+```bash
+php artisan migrate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. (Opcional) Execute os seeders para dados de exemplo:
 
-## Security Vulnerabilities
+```bash
+php artisan db:seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Usando Docker com Laravel Sail
 
-## License
+1. Clone o repositório:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone [url-do-repositorio]
+cd app_fluxo_caixa
+```
+
+1. Instale o Laravel Sail:
+
+```bash
+composer require laravel/sail --dev
+php artisan sail:install
+```
+
+1. Configure o arquivo de ambiente:
+
+```bash
+cp .env.example .env
+```
+
+1. Inicie os containers do Docker:
+
+```bash
+./vendor/bin/sail up -d
+```
+
+1. Gere a chave da aplicação:
+
+```bash
+./vendor/bin/sail artisan key:generate
+```
+
+1. Execute as migrações:
+
+```bash
+./vendor/bin/sail artisan migrate
+```
+
+1. (Opcional) Execute os seeders:
+
+```bash
+./vendor/bin/sail artisan db:seed
+```
+
+## Estrutura do Banco de Dados
+
+- `users`: Usuários do sistema
+- `pessoas`: Cadastro de pessoas/clientes
+- `categorias`: Categorias de receitas e despesas
+- `formas_pagamento`: Formas de pagamento disponíveis
+- `contas`: Contas financeiras
+- `pagamentos`: Registro de transações
+
+## Comandos Úteis
+
+### Composer
+
+```bash
+# Instalar dependências
+composer install
+
+# Atualizar dependências
+composer update
+```
+
+### Artisan (Laravel)
+
+```bash
+# Criar migration
+php artisan make:migration create_nome_tabela
+
+# Executar migrations
+php artisan migrate
+
+# Reverter migrations
+php artisan migrate:rollback
+
+# Criar controller
+php artisan make:controller NomeController
+
+# Criar model
+php artisan make:model Nome
+```
+
+### Laravel Sail
+
+```bash
+# Iniciar containers
+./vendor/bin/sail up -d
+
+# Parar containers
+./vendor/bin/sail down
+
+# Executar comandos artisan
+./vendor/bin/sail artisan [comando]
+
+# Executar comandos composer
+./vendor/bin/sail composer [comando]
+
+# Acessar terminal do container
+./vendor/bin/sail shell
+```
+
+## Testes
+
+Execute os testes usando o PEST:
+
+```bash
+./vendor/bin/sail test
+```
+
+ou sem Docker:
+
+```bash
+php artisan test
+```
+
+## Como Contribuir
+
+1. Faça um fork do projeto
+
+1. Crie uma branch para sua feature
+
+```bash
+git checkout -b feature/nome-da-feature
+```
+
+1. Commit suas alterações
+
+```bash
+git commit -m 'Adiciona nova feature'
+```
+
+1. Push para a branch
+
+```bash
+git push origin feature/nome-da-feature
+```
+
+1. Abra um Pull Request
+
+### Diretrizes para Contribuição
+
+- Sempre crie uma branch para sua feature/correção
+- Siga os padrões de código do projeto (PSR-12)
+- Escreva testes para novas funcionalidades
+- Atualize a documentação quando necessário
+- Certifique-se que todos os testes estão passando antes do Pull Request
+- Descreva claramente suas alterações no Pull Request
+
+### Reportando Bugs
+
+Se você encontrou um bug, por favor, abra uma issue no GitHub com as seguintes informações:
+
+- Descrição clara do problema
+- Passos para reproduzir
+- Comportamento esperado
+- Comportamento atual
+- Prints de tela (se aplicável)
+- Versão do PHP e do Laravel
+- Sistema operacional
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
